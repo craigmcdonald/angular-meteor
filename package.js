@@ -1,8 +1,8 @@
 Package.describe({
-  name: "urigo:angular",
+  name: "lefthandme:angular",
   summary: "The simplest no-conflict way to use AngularJS with Meteor, Meteorite and Atmosphere Smart Packages.",
-  version: "0.9.3",
-  git: "https://github.com/Urigo/angular-meteor.git"
+  version: "0.0.1",
+  git: "https://github.com/craigmcdonald/angular-meteor"
 });
 
 Package.registerBuildPlugin({
@@ -27,11 +27,11 @@ Package.registerBuildPlugin({
 });
 
 Package.on_use(function (api) {
-  api.versionsFrom('METEOR@0.9.0.1');
 
   api.use('angular:angular@1.4.1', 'client');
-  api.use('minimongo');  // for idStringify
-  api.use('observe-sequence');
+  api.use('mongo-id@1.0.0');  // for idStringify and idParse
+  api.use('diff-sequence@1.0.0') // for diffQueryOrderedChanges
+  api.use('observe-sequence@1.0.6');
   api.use('dburles:mongo-collection-instances@0.3.4', 'client'); // For getCollectionByName
 
   // Files to load in Client only.
